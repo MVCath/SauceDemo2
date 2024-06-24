@@ -1,8 +1,10 @@
-import org.junit.Assert;
-import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 public class LoginTest {
 
@@ -15,7 +17,7 @@ public class LoginTest {
         driver.findElement(By.name("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).submit();
         var errorText = driver.findElement(By.cssSelector("[class=title]")).getText();
-        Assert.assertEquals(errorText, "Products");
+        assertEquals(errorText, "Products");
     }
 
     @Test
@@ -27,7 +29,7 @@ public class LoginTest {
         driver.findElement(By.name("password"));
         driver.findElement(By.id("login-button")).click();
         var errorText = driver.findElement(By.xpath("//h3[contains(@data-test,'error')]")).getText();
-        Assert.assertEquals(errorText, "Epic sadface: Username is required");
+        assertEquals(errorText, "Epic sadface: Username is required");
     }
 
     @Test
@@ -39,7 +41,7 @@ public class LoginTest {
         driver.findElement(By.name("password")).sendKeys("bbb");
         driver.findElement(By.id("login-button")).click();
         var errorText = driver.findElement(By.xpath("//h3[contains(@data-test,'error')]")).getText();
-        Assert.assertEquals(errorText, "Epic sadface: Username and password do not match any user in this service");
+        assertEquals(errorText, "Epic sadface: Username and password do not match any user in this service");
     }
 }
 
