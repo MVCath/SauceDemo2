@@ -1,4 +1,4 @@
-package Pages;
+package Pages.SauceDemo2;
 import Pages.Base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,15 +10,11 @@ public class LoginPage extends BasePage {
     }
 
     private final By USERNAME_INPUT = By.id("user-name");
-
     private final By PASSWORD_INPUT = By.name("password");
-
     private final By LOGIN_BUTTON = By.id("login-button");
-
     private final By ERROR_LOGIN = By.xpath("//h3[contains(@data-test,'error')]");
-
     public void open () {
-        driver.get("https://www.saucedemo.com/");
+        driver.get("https://www.saucedemo.com");
     }
 
     public void login (String user, String password) {
